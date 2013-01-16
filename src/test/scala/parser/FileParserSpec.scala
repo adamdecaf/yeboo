@@ -6,14 +6,16 @@ import org.specs2.mutable.Specification
 object FileParserSpec extends Specification {
 
   "The FileParser" should {
-    "check that a valid line is valid" in new context {
-      FileParser.isValidLine(validLine) must beTrue
-      FileParser.isValidLine(invalidLine) must beFalse
+    "parse some raw strings" in new context {
+      FileParser.parseFileByRawString(sampleFile) === sampleResult
     }
   }
 
   trait context extends Scope {
-    val validLine = "1 (1g) (9b)"
-    val invalidLine = "0 (1h)"
+    val sampleFile = """1 (1g) (2b)"""
+
+    val sampleResult = FileDescription(Iterable(
+      LineDescription(1, Iterable(Pixel(Color.Green), Pixel(Color.Blue), Pixel(Color.Blue)))
+    ))
   }
 }
