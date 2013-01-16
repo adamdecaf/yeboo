@@ -15,9 +15,9 @@ object FileParserSpec extends Specification {
     val sampleFile = """1 (1g) (2b)
     2 (2w)"""
 
-    val sampleResult = FileDescription(Iterable(
-      LineDescription(1, Iterable(Pixel(Color.Green), Pixel(Color.Blue), Pixel(Color.Blue))),
-      LineDescription(2, Iterable(Pixel(Color.White), Pixel(Color.White)))
+    val sampleResult = FileDescription(List(
+      LineDescription(1, List(Pixel(Colors.Green), Pixel(Colors.Blue), Pixel(Colors.Blue))),
+      LineDescription(2, List(Pixel(Colors.White), Pixel(Colors.White)))
     ))
   }
 }

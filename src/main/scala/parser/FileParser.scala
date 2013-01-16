@@ -17,7 +17,7 @@ trait FileParser {
           case Left(e)         => throw e
         }
     }
-    FileDescription(parsedLines)
+    FileDescription(parsedLines.toList)
   }
 
   private[this] def parseLine(line: String): Either[ParsingFailure, LineDescription] = {
@@ -42,11 +42,11 @@ trait FileParser {
   private[this] def extractDataFromLine(line: String): LineDescription = {
     val lineWithRepeat = line.replaceAll("""\)""","").replaceAll("""\("""," ").split(" ")
     val repeatFeq: Int = lineWithRepeat.head.toInt
-    val rawPixels: Iterable[Pixel] = lineWithRepeat.drop(1).flatMap {
+    val rawPixels: List[Pixel] = (lineWithRepeat.drop(1).flatMap {
       block =>
-        val (blockRepeatFreq: Int, blockColor: Color.Value) = (block.head.toString.toInt, Color.withName(block.last.toString))
-        Iterator.range(1, blockRepeatFreq + 1).toIterable.map(_ => Pixel(blockColor)).toList
-    }
+        val (blockRepeatFreq: Int, blockColor: Colors.Value) = (block.head.toString.toInt, Colors.withName(block.last.toString))
+        Iterator.range(0, blockRepeatFreq).toIterable.map(_ => Pixel(blockColor)).toList
+    }).toList
     LineDescription(repeatFeq, rawPixels)
   }
 }
