@@ -3,12 +3,10 @@ package org.decaf.yeboo.parser
 object FileParser extends FileParser
 
 trait FileParser {
-  // Sample line: 1 (1g) (2b)
   private[this] final val LINE_PATTERN = """^\d[\(\d[rgbwx]\)]{1,}$""".r
   private[this] final val LINE_EXTRACTION_REGEX = """(\d)([\d\w]+)""".r
 
   def parseFileByRawString(rawString: String): FileDescription = {
-    //val lines = scala.io.Source.fromFile(path).getLines.toList
     val lines = rawString.split("\n")
     val parsedLines = lines.flatMap {
       line =>

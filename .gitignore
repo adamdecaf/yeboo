@@ -13,4 +13,5 @@ project/plugins/project/
 .scala_dependencies
 
 # Tests
+examples/design-result.png
 src/test/resources/testImage.png
