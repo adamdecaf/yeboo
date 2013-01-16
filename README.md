@@ -11,3 +11,12 @@ With some file like
     adam@earth:~$ cat design.yeb
     1 (1g) (2b)
     2 (2w)
+
+## TODO
+
+* Introduce CLI args parsing (from) library
+* Add more colors (java.awt.Color)
+* Clean up code.
+* Handle Multiple input/output files?
+* Create larger example images
+* Preprocessing layer before FileParser to create lines, circles, etc..
