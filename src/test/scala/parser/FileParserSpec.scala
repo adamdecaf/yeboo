@@ -12,10 +12,12 @@ object FileParserSpec extends Specification {
   }
 
   trait context extends Scope {
-    val sampleFile = """1 (1g) (2b)"""
+    val sampleFile = """1 (1g) (2b)
+    2 (2w)"""
 
     val sampleResult = FileDescription(Iterable(
-      LineDescription(1, Iterable(Pixel(Color.Green), Pixel(Color.Blue), Pixel(Color.Blue)))
+      LineDescription(1, Iterable(Pixel(Color.Green), Pixel(Color.Blue), Pixel(Color.Blue))),
+      LineDescription(2, Iterable(Pixel(Color.White), Pixel(Color.White)))
     ))
   }
 }
