@@ -19,8 +19,9 @@ object ImageGenerationSpec extends Specification {
 
   trait context extends Scope {
     val sampleInput = FileDescription(List(
-      LineDescription(1, List(Pixel(Colors.Green), Pixel(Colors.Blue), Pixel(Colors.Blue))),
-      LineDescription(2, List(Pixel(Colors.White), Pixel(Colors.White)))
+      LineDescription(List(Pixel(Colors.Green), Pixel(Colors.Blue), Pixel(Colors.Blue))),
+      LineDescription(List(Pixel(Colors.White), Pixel(Colors.White))),
+      LineDescription(List(Pixel(Colors.White), Pixel(Colors.White)))
     ))
 
     lazy val fileStream = new FileInputStream(new File("src/test/resources/validImage.png"))

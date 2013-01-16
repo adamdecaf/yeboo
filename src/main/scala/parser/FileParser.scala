@@ -10,7 +10,7 @@ trait FileParser {
   def parseFileByRawString(rawString: String): FileDescription = {
     //val lines = scala.io.Source.fromFile(path).getLines.toList
     val lines = rawString.split("\n")
-    val parsedLines = lines.map {
+    val parsedLines = lines.flatMap {
       line =>
         parseLine(line) match {
           case Right(lineInfo) => lineInfo
@@ -20,7 +20,7 @@ trait FileParser {
     FileDescription(parsedLines.toList)
   }
 
-  private[this] def parseLine(line: String): Either[ParsingFailure, LineDescription] = {
+  private[this] def parseLine(line: String): Either[ParsingFailure, List[LineDescription]] = {
     val cleanedLine = removeSpaces(line)
 
     if (isValidLine(cleanedLine)) {
@@ -39,7 +39,7 @@ trait FileParser {
     case _              => false
   }
 
-  private[this] def extractDataFromLine(line: String): LineDescription = {
+  private[this] def extractDataFromLine(line: String): List[LineDescription] = {
     val lineWithRepeat = line.replaceAll("""\)""","").replaceAll("""\("""," ").split(" ")
     val repeatFeq: Int = lineWithRepeat.head.toInt
     val rawPixels: List[Pixel] = (lineWithRepeat.drop(1).flatMap {
@@ -47,6 +47,6 @@ trait FileParser {
         val (blockRepeatFreq: Int, blockColor: Colors.Value) = (block.head.toString.toInt, Colors.withName(block.last.toString))
         Iterator.range(0, blockRepeatFreq).toIterable.map(_ => Pixel(blockColor)).toList
     }).toList
-    LineDescription(repeatFeq, rawPixels)
+    List.fill(repeatFeq)(LineDescription(rawPixels))
   }
 }

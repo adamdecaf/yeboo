@@ -12,6 +12,6 @@ object Colors extends Enumeration {
 }
 
 case class Pixel(color: Colors.Value)
-case class LineDescription(repeatFrequency: Int, rowPixels: List[Pixel])
+case class LineDescription(rowPixels: List[Pixel])
 
 case class FileDescription(lines: List[LineDescription])
