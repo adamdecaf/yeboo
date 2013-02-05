@@ -18,6 +18,7 @@ trait FileParser {
     FileDescription(parsedLines.toList)
   }
 
+  // todo: Make these public and throw tests around them..
   private[this] def parseLine(line: String): Either[ParsingFailure, List[LineDescription]] = {
     val cleanedLine = removeSpaces(line)
 

@@ -21,3 +21,4 @@ With some file like
 * Create larger example images
 * Preprocessing layer before FileParser to create lines, circles, etc..
 * Patern syntax [(2g) (4b)]{4} for "(2g) (4b) (2g) (4b) (2g) (4b) (2g) (4b)"
+* Introduce the cli-args project.
