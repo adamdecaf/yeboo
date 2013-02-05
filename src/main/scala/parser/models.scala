@@ -1,4 +1,4 @@
-package org.decaf.yeboo.parser
+package yeboo.parser
 
 trait ParsingFailure extends Exception
 case object ImproperSyntax extends ParsingFailure

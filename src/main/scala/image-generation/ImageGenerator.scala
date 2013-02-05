@@ -1,8 +1,8 @@
-package org.decaf.yeboo.images
+package yeboo.images
 
 import java.awt.Color
 import java.awt.image.BufferedImage
-import org.decaf.yeboo.parser.{Colors, FileDescription, LineDescription}
+import yeboo.parser.{Colors, FileDescription, LineDescription}
 
 object ImageGeneration extends ImageGeneration
 

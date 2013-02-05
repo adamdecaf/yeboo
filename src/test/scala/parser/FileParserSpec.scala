@@ -1,4 +1,4 @@
-package org.decaf.yeboo.parser
+package yeboo.parser
 
 import org.specs2.specification.Scope
 import org.specs2.mutable.Specification

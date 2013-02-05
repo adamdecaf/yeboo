@@ -1,4 +1,4 @@
-package org.decaf.yeboo.parser
+package yeboo.parser
 
 object FileParser extends FileParser
 

@@ -1,11 +1,11 @@
-package org.decaf.yeboo.images
+package yeboo.images
 
 import javax.imageio.ImageIO
 import java.io.{File, FileInputStream}
 import java.awt.image.BufferedImage
 import org.specs2.specification.Scope
 import org.specs2.mutable.Specification
-import org.decaf.yeboo.parser.{Colors, FileDescription, LineDescription, Pixel}
+import yeboo.parser.{Colors, FileDescription, LineDescription, Pixel}
 
 object ImageGenerationSpec extends Specification {
 
