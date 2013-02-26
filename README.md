@@ -12,6 +12,11 @@ With some file like
     1 (1g) (2b)
     2 (2w)
 
+## Cleanup
+
+* Refine the parser to create more structures and representations of the language
+* Implement ways that will allow for the expansion of the language.
+
 ## TODO
 
 * Introduce CLI args parsing (from) library
