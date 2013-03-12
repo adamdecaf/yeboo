@@ -27,3 +27,4 @@ With some file like
 * Preprocessing layer before FileParser to create lines, circles, etc..
 * Patern syntax [(2g) (4b)]{4} for "(2g) (4b) (2g) (4b) (2g) (4b) (2g) (4b)"
 * Introduce the cli-args project.
+* {4 g b c} == [(1g) (1b) (1c)]{4}
