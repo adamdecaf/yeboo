@@ -1,30 +1,32 @@
 # yeboo
 
-## Usage
+> A toy language for creating images.
 
-To use this it's as easy as.
+## Introduction
 
-    > run -O result.png design.yeb
+Images are represented as the following
 
-With some file like
+       0                                   x
+       ------------------------------------
+    0 |
+      |
+      |              .
+      |            p(x,y)
+      |
+      |
+      |
+    y |
 
-    adam@earth:~$ cat design.yeb
-    1 (1g) (2b)
-    2 (2w)
+## Example
 
-## Cleanup
+__Before you start__
 
-* Refine the parser to create more structures and representations of the language
-* Implement ways that will allow for the expansion of the language.
+- The only type is a long
+- &name means a function which takes one param, the current pixels over from the left (where x = 0).
 
-## TODO
-
-* Introduce CLI args parsing (from) library
-* Add more colors (java.awt.Color)
-* Clean up code.
-* Handle Multiple input/output files?
-* Create larger example images
-* Preprocessing layer before FileParser to create lines, circles, etc..
-* Patern syntax [(2g) (4b)]{4} for "(2g) (4b) (2g) (4b) (2g) (4b) (2g) (4b)"
-* Introduce the cli-args project.
-* {4 g b c} == [(1g) (1b) (1c)]{4}
+```
+red_block(width, height, &fill, border = 3) = {
+    (width red)
+    (border black) (width - border
+}
+```

@@ -15,3 +15,6 @@ project/plugins/project/
 # Tests
 examples/design-result.png
 src/test/resources/testImage.png
+
+# Notes
+old/
